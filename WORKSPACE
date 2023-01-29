@@ -33,7 +33,17 @@ python_register_toolchains(
     python_version = "3.9",
 )
 
-load("//bazel/python:deps.bzl", "python_dependencies")
+load("@python3_9//:defs.bzl", "interpreter")
 
-python_dependencies()
+load("@rules_python//python:pip.bzl", "pip_parse")
+
+pip_parse(
+    python_interpreter_target = interpreter,
+    name = "py_deps",
+    requirements_lock = "//bazel/python:requirements_lock.txt",
+)
+
+load("@py_deps//:requirements.bzl", "install_deps")
+
+install_deps()
 
