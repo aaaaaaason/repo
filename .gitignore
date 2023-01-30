@@ -2,4 +2,4 @@ bazel-bin
 bazel-out
 bazel-repo
 bazel-testlogs
-
+.python-version
