@@ -1,9 +1,9 @@
 # Use --cpu as a differentiator.
-build --cpu=linux_x86_64
+build:clang_config --cpu=linux_x86_64
 
 # Use our custom-configured c++ toolchain.
 build:clang_config --crosstool_top=//bazel/cpp:clang_suite
 
 # Asan cannot be used with other sanitizers
-build:clang_asan --copt=-fsanitize=address --linkopt=-fsanitize=address --crosstool_top=//bazel/cpp:clang_suite
-build:clang_tsan --copt=-fsanitize=thread --linkopt=-fsanitize=thread --crosstool_top=//bazel/cpp:clang_suite
+build:clang_asan --config=clang_config --copt=-fsanitize=address --linkopt=-fsanitize=address --crosstool_top=//bazel/cpp:clang_suite
+build:clang_tsan --config=clang_config --copt=-fsanitize=thread --linkopt=-fsanitize=thread --crosstool_top=//bazel/cpp:clang_suite
