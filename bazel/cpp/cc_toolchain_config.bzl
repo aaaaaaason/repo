@@ -79,7 +79,6 @@ def _impl(ctx):
                             flags = [
                                 "-O2", "-DNDEBUG",
                                 "-Wall", "-Wextra", "-Wpedantic", "-fPIC",
-                                "-std=c++20", "-stdlib=libc++",
                             ],
                         ),
                     ]),
@@ -115,7 +114,7 @@ def _impl(ctx):
         toolchain_identifier = "local",
         host_system_name = "local",
         target_system_name = "local",
-        target_cpu = "linux_x86_64",
+        target_cpu = "k8",
         target_libc = "unknown",
         compiler = "clang",
         abi_version = "unknown",
