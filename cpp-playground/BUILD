@@ -4,8 +4,8 @@ cc_binary(
   deps = [
     "@com_google_absl//absl/strings",
     "@com_google_absl//absl/log",
-    "//bazel/cpp:com_github_fmtlib_fmt",
-    "//bazel/cpp:com_github_gabime_spdlog",
+    "@com_github_fmtlib_fmt",
+    "@com_github_gabime_spdlog",
   ],
   srcs = glob(["src/**"]),
 )
