@@ -43,7 +43,7 @@ def _impl(ctx):
         ),
         tool_path(
             name = "ar",
-            path = llvm_bindir + "/llvm-ar",
+            path = llvm_bindir + "/llvm-ar-15",
         ),
         tool_path(
             name = "cpp",
