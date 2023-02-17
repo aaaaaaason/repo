@@ -1,10 +1,11 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
 #include "absl/log/log.h"
 #include "fmt/core.h"
 #include "foo.h"
 #include "spdlog/spdlog.h"
-#include <iostream>
-#include <string>
-#include <vector>
 
 int main() {
   LOG(INFO) << "hi";
