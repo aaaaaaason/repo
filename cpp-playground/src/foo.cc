@@ -1,4 +1,5 @@
 #include "foo.h"
+
 #include <memory>
 
 namespace cpp_playground {
@@ -14,20 +15,20 @@ std::ostream &operator<<(std::ostream &out, const Foo &f) {
   return out;
 }
 
-void test_foo() {
+void TestFoo() {
   Foo f(3, 6);
   std::cout << f << std::endl;
 
   // auto ptr = std::make_unique<Foo>(1, 4);
   std::unique_ptr<Foo> ptr = std::make_unique<Foo>(1, 4);
 
-  std::cout << *ptr << std::endl;
+  // std::cout << *ptr << std::endl;
 
   // auto ptr2 = ptr;
 
   std::unique_ptr<Foo> ptr2(ptr.release());
 
-  std::cout << *ptr2 << std::endl;
+  // std::cout << *ptr2 << std::endl;
 }
 
-} // namespace cpp_playground
+}  // namespace cpp_playground

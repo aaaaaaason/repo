@@ -7,7 +7,7 @@
 namespace cpp_playground {
 
 class Foo {
-public:
+ public:
   Foo(int32_t fa, int32_t fb);
   Foo(const Foo &f) = default;
   Foo &operator=(const Foo &f) = default;
@@ -16,13 +16,13 @@ public:
 
   friend std::ostream &operator<<(std::ostream &out, const Foo &f);
 
-private:
+ private:
   int32_t _fa;
   int32_t _fb;
 };
 
-void test_foo();
+void TestFoo();
 
-} // namespace cpp_playground
+}  // namespace cpp_playground
 
-#endif // !FOO_H
+#endif  // !FOO_H

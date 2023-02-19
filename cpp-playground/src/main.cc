@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+#include "absl.h"
 #include "absl/flags/flag.h"
 #include "absl/flags/parse.h"
 #include "fmt/format.h"
@@ -29,6 +30,9 @@ void printResult() {
 int main(int argc, char **argv) {
   absl::ParseCommandLine(argc, argv);
   printResult();
-  cpp_playground::test_foo();
+  cpp_playground::TestAbslTime();
+  cpp_playground::TestFoo();
+  cpp_playground::TestAbslStringUtilities();
+  cpp_playground::TestAbslStatus();
   return 0;
 }
