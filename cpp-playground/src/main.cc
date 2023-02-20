@@ -10,6 +10,7 @@
 #include "fmt/format.h"
 #include "fmt/ranges.h"
 #include "foo.h"
+#include "json.h"
 
 ABSL_FLAG(bool, bool_flag, false, "a boolean flag");
 ABSL_FLAG(int32_t, int32_flag, 20, "an int32 flag");
@@ -34,5 +35,6 @@ int main(int argc, char **argv) {
   cpp_playground::TestFoo();
   cpp_playground::TestAbslStringUtilities();
   cpp_playground::TestAbslStatus();
+  cpp_playground::TestNlohmannJson();
   return 0;
 }

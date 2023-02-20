@@ -20,3 +20,10 @@ def cpp_dependencies():
       urls = ["https://github.com/gabime/spdlog/archive/refs/tags/v1.11.0.zip"],
       strip_prefix = "spdlog-1.11.0",
     )
+
+    http_archive(
+      name = "com_github_nlohmann_json",
+      build_file = "//bazel/cpp:com_github_nlohmann_json.bzl",
+      urls = ["https://github.com/nlohmann/json/archive/refs/tags/v3.11.2.zip"],
+      strip_prefix = "json-3.11.2",
+    )

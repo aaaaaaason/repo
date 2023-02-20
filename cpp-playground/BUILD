@@ -11,6 +11,7 @@ cc_binary(
     "@com_google_absl//absl/status:statusor",
     "@com_github_fmtlib_fmt",
     "@com_github_gabime_spdlog",
+    "@com_github_nlohmann_json//:com_github_nlohmann_json",
   ],
   srcs = glob(["src/**"]),
 )
