@@ -52,6 +52,7 @@ cc_toolchain(
 )
 
 # This do not work due to https://github.com/bazelbuild/bazel/issues/14118#issuecomment-1336500934
+# Have tried brew install llvm but got undefined symbol for architecture arm64 error
 cc_toolchain_config(
     name = "darwin_arm64_toolchain_config",
     gcc_path = "/usr/bin/clang",
@@ -59,9 +60,6 @@ cc_toolchain_config(
     ar_path = "/usr/bin/ar",
     cpp_path = "/usr/bin/clang++",
     cxx_builtin_include_directories = [
-        "/Library/Developer/CommandLineTools/usr/include/c++/v1",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk",
-        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include",
     ],   
 )
 

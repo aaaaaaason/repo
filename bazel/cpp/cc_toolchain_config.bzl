@@ -28,6 +28,7 @@ all_link_actions = [
 ]
 
 def _impl(ctx):
+    llvm_bindir = "/usr/bin"
     tool_paths = [
         tool_path(
             name = "gcc",
