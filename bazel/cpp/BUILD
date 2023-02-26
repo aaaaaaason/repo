@@ -8,6 +8,7 @@ cc_toolchain_suite(
     name = "clang_suite",
     toolchains = {
         "k8": ":k8_toolchain",
+        "darwin_arm64": ":darwin_arm64_toolchain",
     },
 )
 
@@ -26,5 +27,41 @@ cc_toolchain(
     supports_param_files = 0,
 )
 
-cc_toolchain_config(name = "k8_toolchain_config")
+cc_toolchain_config(name = "k8_toolchain_config",
+    gcc_path = "/usr/bin/clang-15",
+    ld_path = "/usr/bin/ld.lld-15",
+    ar_path = "/usr/bin/llvm-ar-15",
+    cpp_path = "/usr/bin/clang++-15",
+    cxx_builtin_include_directories = [
+        "/usr/lib/llvm-15",
+        "/usr/include",
+    ],
+)
+
+cc_toolchain(
+    name = "darwin_arm64_toolchain",
+    toolchain_identifier = "darwin_arm64_toolchain",
+    toolchain_config = ":darwin_arm64_toolchain_config",
+    all_files = ":empty",
+    compiler_files = ":empty",
+    dwp_files = ":empty",
+    linker_files = ":empty",
+    objcopy_files = ":empty",
+    strip_files = ":empty",
+    supports_param_files = 0,
+)
+
+# This do not work due to https://github.com/bazelbuild/bazel/issues/14118#issuecomment-1336500934
+cc_toolchain_config(
+    name = "darwin_arm64_toolchain_config",
+    gcc_path = "/usr/bin/clang",
+    ld_path = "/usr/bin/ld",
+    ar_path = "/usr/bin/ar",
+    cpp_path = "/usr/bin/clang++",
+    cxx_builtin_include_directories = [
+        "/Library/Developer/CommandLineTools/usr/include/c++/v1",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include",
+    ],   
+)
 

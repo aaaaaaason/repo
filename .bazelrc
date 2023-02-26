@@ -1,13 +1,31 @@
-#build:clang_config --compiler=clang-15
+run --color=yes
 
-# Use --cpu as a differentiator.
-#build:clang_config --cpu=linux_x86_64
+build --color=yes
+build --copt -Og
+build --copt -Wall
+build --copt -Wextra
+build --copt -Wpedantic
+build --copt -fPIC
+
+build --cxxopt=-std=c++2b
+build --cxxopt=-stdlib=libc++
+
+build --linkopt -lc++
+build --linkopt -lc++abi
+build --linkopt -lm
+build --linkopt -ldl
+build --linkopt -lpthread
 
 # Use our custom-configured c++ toolchain.
-build:clang_config --crosstool_top=//bazel/cpp:clang_suite
-build:clang_config --cxxopt=-std=c++2b
-build:clang_config --cxxopt=-stdlib=libc++
+build --crosstool_top=//bazel/cpp:clang_suite
+
+build:mac --cpu=darwin_arm64
 
 # Asan cannot be used with other sanitizers
-build:clang_asan --config=clang_config --copt=-fsanitize=address --linkopt=-fsanitize=address --crosstool_top=//bazel/cpp:clang_suite
-build:clang_tsan --config=clang_config --copt=-fsanitize=thread --linkopt=-fsanitize=thread --crosstool_top=//bazel/cpp:clang_suite
+build:asan --copt=-fsanitize=address
+build:asan --linkopt=-fsanitize=address
+
+build:tsan --copt=-fsanitize=thread
+build:tsan --linkopt=-fsanitize=thread
+
+
