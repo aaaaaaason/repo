@@ -27,3 +27,11 @@ def cpp_dependencies():
       urls = ["https://github.com/nlohmann/json/archive/refs/tags/v3.11.2.zip"],
       strip_prefix = "json-3.11.2",
     )
+
+    http_archive(
+      name = "com_github_libcpr_cpr",
+      build_file = "//bazel/cpp:com_github_libcpr_cpr.bzl",
+      patches = ["//bazel/cpp:com_github_libcpr_cpr.patch"],
+      urls = ["https://github.com/libcpr/cpr/archive/refs/tags/1.10.0.tar.gz"],
+      strip_prefix = "cpr-1.10.0",
+    )

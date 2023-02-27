@@ -7,6 +7,7 @@
 #include "absl.h"
 #include "absl/flags/flag.h"
 #include "absl/flags/parse.h"
+#include "cpr/cpr.h"
 #include "fmt/format.h"
 #include "fmt/ranges.h"
 #include "foo.h"
@@ -36,5 +37,13 @@ int main(int argc, char **argv) {
   cpp_playground::TestAbslStringUtilities();
   cpp_playground::TestAbslStatus();
   cpp_playground::TestNlohmannJson();
+
+  cpr::Response r = cpr::Get(
+      cpr::Url{"https://api.github.com/repos/whoshuu/cpr/contributors"},
+      cpr::Authentication{"user", "pass", cpr::AuthMode::BASIC},
+      cpr::Parameters{{"anon", "true"}, {"key", "value"}});
+  r.status_code;             // 200
+  r.header["content-type"];  // application/json; charset=utf-8
+  r.text;
   return 0;
 }

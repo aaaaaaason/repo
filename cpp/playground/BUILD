@@ -12,6 +12,7 @@ cc_binary(
     "@com_github_fmtlib_fmt",
     "@com_github_gabime_spdlog",
     "@com_github_nlohmann_json//:com_github_nlohmann_json",
+    "@com_github_libcpr_cpr//:com_github_libcpr_cpr",
   ],
   srcs = glob(["src/**"]),
 )
