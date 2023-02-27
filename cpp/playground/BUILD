@@ -1,6 +1,6 @@
 
 cc_binary(
-  name = "cpp-playground",
+  name = "playground",
   deps = [
     "@com_google_absl//absl/strings",
     "@com_google_absl//absl/log",
