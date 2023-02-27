@@ -17,3 +17,11 @@ cc_binary(
   srcs = glob(["src/**"]),
 )
 
+cc_library(
+    name = "test",
+    srcs = ["src/lib.cc"],
+    hdrs = ["include/playground/lib.h"],
+    includes = ["include"],
+    visibility = ["//visibility:public"],
+)
+
