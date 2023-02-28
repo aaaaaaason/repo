@@ -28,4 +28,4 @@ build:asan --linkopt=-fsanitize=address
 build:tsan --copt=-fsanitize=thread
 build:tsan --linkopt=-fsanitize=thread
 
-
+test --test_output=all

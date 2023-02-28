@@ -35,3 +35,9 @@ def cpp_dependencies():
       urls = ["https://github.com/libcpr/cpr/archive/refs/tags/1.10.0.tar.gz"],
       strip_prefix = "cpr-1.10.0",
     )
+
+    http_archive(
+      name = "com_github_google_googletest",
+      urls = ["https://github.com/google/googletest/archive/refs/tags/v1.13.0.tar.gz"],
+      strip_prefix = "googletest-1.13.0",
+    )
