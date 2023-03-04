@@ -10,7 +10,7 @@ if ! which go > /dev/null 2>&1; then
   sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf ${GO_FILE}
   rm ${GO_FILE}
 
-  echo export PATH=$PATH:/usr/local/go/bin >> ~/.bashrc
+  echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
 
   source ~/.bashrc
 fi
