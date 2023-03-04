@@ -2,6 +2,7 @@
 
 cd shell/dev/
 
+source ./basic.sh
 source ./bazel.sh
 source ./clang.sh
 source ./golang.sh
