@@ -114,3 +114,26 @@ load("//bazel/cpp:deps.bzl", "cpp_dependencies")
 
 cpp_dependencies()
 
+# JAVA
+
+RULES_JVM_EXTERNAL_TAG = "5.1"
+RULES_JVM_EXTERNAL_SHA ="8c3b207722e5f97f1c83311582a6c11df99226e65e2471086e296561e57cc954"
+
+http_archive(
+    name = "rules_jvm_external",
+    strip_prefix = "rules_jvm_external-%s" % RULES_JVM_EXTERNAL_TAG,
+    sha256 = RULES_JVM_EXTERNAL_SHA,
+    url = "https://github.com/bazelbuild/rules_jvm_external/releases/download/%s/rules_jvm_external-%s.tar.gz" % (RULES_JVM_EXTERNAL_TAG, RULES_JVM_EXTERNAL_TAG)
+)
+
+load("@rules_jvm_external//:repositories.bzl", "rules_jvm_external_deps")
+
+rules_jvm_external_deps()
+
+load("@rules_jvm_external//:setup.bzl", "rules_jvm_external_setup")
+
+rules_jvm_external_setup()
+
+load("//bazel/java:deps.bzl", "java_dependencies")
+
+java_dependencies()
