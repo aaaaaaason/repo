@@ -10,5 +10,6 @@ source ./npm.sh
 source ./neovim.sh
 source ./python.sh
 source ./tmux.sh
+source ./java.sh
 
 echo done
