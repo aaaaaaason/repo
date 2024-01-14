@@ -18,7 +18,7 @@ set-option -g prefix C-a
 
 bind-key C-a send-prefix
 
-set -g mode-mouse on
+set -g mouse on
 
 set-window-option -g mode-keys vi
 
