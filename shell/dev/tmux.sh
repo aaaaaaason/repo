@@ -4,7 +4,7 @@ if [[ ! -d ~/.tmux/plugins/tpm ]]; then
   echo "git clone tmux plugin manager..."
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-  cat <<EOF >>~/.tmux.conf
+  cat <<EOF >~/.tmux.conf
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
